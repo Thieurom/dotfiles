@@ -1,0 +1,19 @@
+[core]
+    pager = delta
+[delta]
+    syntax-theme = Nord
+    plus-color = "#a3be8c"
+    minus-color = "#bf616a"
+    line-numbers = true
+[user]
+	name = Doan Le Thieu
+	email = thieurom@gmail.com
+[alias]
+	ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[init]
+	defaultBranch = main
