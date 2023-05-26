@@ -1,14 +1,5 @@
-# Setup `rbenv` shims path
-status --is-interactive; and source (rbenv init -|psub)
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
 
-# Config RubyGems
-set GEM_HOME $HOME/.gem
-set PATH $PATH $GEM_HOME/bin
-
-# Config Rust
-set CARGO_HOME $HOME/.cargo
-set PATH $PATH $CARGO_HOME/bin
-
-# Config Golang
-set GOPATH $HOME/go
-set PATH $PATH $GOPATH/bin
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
