@@ -7,6 +7,12 @@ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
+local branch = {
+  "branch",
+  icon = "󰘬",
+  separator = { left = "", right = "", },
+}
+
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
@@ -18,14 +24,9 @@ local diagnostics = {
 
 local diff = {
   "diff",
-  colored = false,
-  symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+  colored = true,
+  symbols = { added = " ",  modified = " ", removed = " " }, -- changes diff symbols
   cond = hide_in_width,
-}
-
-local filetype = {
-  "filetype",
-  icons_enabled = false,
 }
 
 local location = {
@@ -42,16 +43,16 @@ lualine.setup {
     globalstatus = true,
     icons_enabled = true,
     theme = "auto",
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard" },
     always_divide_middle = true,
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { "branch" },
-    lualine_c = { diagnostics },
-    lualine_x = { diff, spaces, "encoding", filetype },
+    lualine_b = { branch },
+    lualine_c = { diff },
+    lualine_x = { diagnostics, "lsp_status" },
     lualine_y = { location },
     lualine_z = { "progress" },
   },
