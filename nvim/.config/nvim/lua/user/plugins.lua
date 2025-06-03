@@ -57,6 +57,7 @@ return packer.startup(function(use)
             vim.o.timeoutlen = 300
         end
     }
+    use { "akinsho/toggleterm.nvim" }
 
     -- Colorschemes
     use { "EdenEast/nightfox.nvim" }

@@ -10,7 +10,7 @@ end
 local branch = {
   "branch",
   icon = "󰘬",
-  separator = { left = "", right = "", },
+  separator = { left = "", right = "", },
 }
 
 local diagnostics = {
@@ -24,9 +24,14 @@ local diagnostics = {
 
 local diff = {
   "diff",
-  colored = true,
-  symbols = { added = " ",  modified = " ", removed = " " }, -- changes diff symbols
+  colored = false,
+  symbols = { added = " ",  modified = " ", removed = " " },
   cond = hide_in_width,
+}
+
+local filetype = {
+  "filetype",
+  icons_enabled = false,
 }
 
 local location = {
@@ -34,17 +39,13 @@ local location = {
   padding = { left = 0, right = 1 },
 }
 
-local spaces = function()
-  return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-end
-
 lualine.setup {
   options = {
     globalstatus = true,
     icons_enabled = true,
     theme = "auto",
     component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard" },
     always_divide_middle = true,
   },
@@ -52,7 +53,7 @@ lualine.setup {
     lualine_a = { "mode" },
     lualine_b = { branch },
     lualine_c = { diff },
-    lualine_x = { diagnostics, "lsp_status" },
+    lualine_x = { diagnostics },
     lualine_y = { location },
     lualine_z = { "progress" },
   },
