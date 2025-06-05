@@ -1,7 +1,7 @@
 local servers = {
     "pyright",
     "sourcekit",
-    "tsserver",
+    "ts_ls",
 }
 
 local settings = {

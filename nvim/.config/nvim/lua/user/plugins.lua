@@ -40,13 +40,13 @@ packer.init({
 
 -- Install plugins here
 return packer.startup(function(use)
-    use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- Have packer manage itself
+    use { "wbthomason/packer.nvim", commit = "ea0cc3c59f67c440c5ff0bbe4fb9420f4350b9a3" } -- Have packer manage itself
     use { "nvim-tree/nvim-tree.lua" }
     use { "nvim-lua/plenary.nvim" }
     use { "nvim-telescope/telescope.nvim" }
     use { "nvim-tree/nvim-web-devicons" }
-    use { "nvim-lualine/lualine.nvim", commit = "a52f078026b27694d2290e34efa61a6e4a690621" }
-    use { "akinsho/bufferline.nvim", commit = "99f0932365b34e22549ff58e1bea388465d15e99" }
+    use { "nvim-lualine/lualine.nvim", commit = "0c6cca9f2c63dadeb9225c45bc92bb95a151d4af" }
+    use { "akinsho/bufferline.nvim", tag = "v4.9.1" }
     use { "moll/vim-bbye" }
     use { "windwp/nvim-autopairs" }
     use { "numToStr/Comment.nvim" }
@@ -72,17 +72,17 @@ return packer.startup(function(use)
     use { "hrsh7th/cmp-nvim-lsp" }
 
     -- snippets
-    use { "L3MON4D3/LuaSnip", commit = "e81cbe6004051c390721d8570a4a0541ceb0df10" }
+    use { "L3MON4D3/LuaSnip", tag = "v2.4.0" }
     use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
 
     -- LSP
-    use { "neovim/nvim-lspconfig", commit = "b6091272422bb0fbd729f7f5d17a56d37499c54f" } -- enable LSP
-    use { "williamboman/mason.nvim" }
-    use { "williamboman/mason-lspconfig.nvim", commit = "e86a4c84ff35240639643ffed56ee1c4d55f538e" }
-    use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
+    use { "neovim/nvim-lspconfig", tag = "v2.2.0" } -- enable LSP
+    use { "williamboman/mason.nvim", tag = "v2.0.0" }
+    use { "williamboman/mason-lspconfig.nvim", tag = "v2.0.0" }
+    use { "nvimtools/none-ls.nvim", commit = "db2a48b79cfcdab8baa5d3f37f21c78b6705c62e" } -- for formatters and linters
 
     -- Treesitter
-    use { "nvim-treesitter/nvim-treesitter", commit = "4fd6d9dc175f367cdcec87630d8a3950ba7daef4" }
+    use { "nvim-treesitter/nvim-treesitter", tag = "v0.10.0" }
 
     -- Git
     use { "lewis6991/gitsigns.nvim" }
