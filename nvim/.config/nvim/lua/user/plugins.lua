@@ -50,6 +50,7 @@ return packer.startup(function(use)
     use { "moll/vim-bbye" }
     use { "windwp/nvim-autopairs" }
     use { "numToStr/Comment.nvim" }
+    use { "goolord/alpha-nvim", commit = "a35468cd72645dbd52c0624ceead5f301c566dff" }
     use {
         "folke/which-key.nvim",
         config = function()
