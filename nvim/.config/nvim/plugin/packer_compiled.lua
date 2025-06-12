@@ -159,6 +159,11 @@ _G.packer_plugins = {
     path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/none-ls.nvim",
     url = "https://github.com/nvimtools/none-ls.nvim"
   },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -169,10 +174,25 @@ _G.packer_plugins = {
     path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-nio"] = {
+    loaded = true,
+    path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/nvim-nio",
+    url = "https://github.com/nvim-neotest/nvim-nio"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -219,6 +239,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["xcodebuild.nvim"] = {
+    loaded = true,
+    path = "/Users/doanthieu/.local/share/nvim/site/pack/packer/start/xcodebuild.nvim",
+    url = "https://github.com/wojciech-kulik/xcodebuild.nvim"
   }
 }
 

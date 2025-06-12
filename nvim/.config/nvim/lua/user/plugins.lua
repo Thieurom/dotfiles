@@ -88,6 +88,11 @@ return packer.startup(function(use)
     -- Git
     use { "lewis6991/gitsigns.nvim" }
 
+    -- Tools
+    use { "MunifTanjim/nui.nvim" } 
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
+    use { "wojciech-kulik/xcodebuild.nvim" }
+
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
