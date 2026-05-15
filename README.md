@@ -32,4 +32,5 @@ identity in `~/.gitconfig.local`, for example:
 
 Generated and local-only files are intentionally not managed, including Neovim
 compiled packer output, `.DS_Store`, Kitty backups, and Karabiner automatic
-backups.
+backups. Fish universal variables are also local-only, so `fish_variables` is
+not tracked.
