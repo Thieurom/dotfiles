@@ -1,0 +1,31 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Doan Thieu
+	email = thieurom@gmail.com
+[core]
+	editor = nvim
+    pager = delta
+[init]
+	defaultBranch = main
+[alias]
+    st = status
+    ch = checkout
+    chb = checkout -b
+    aa = add --all
+    cm = commit
+    fe = fetch -p
+    di = diff
+[interactive]
+    diffFilter = delta --color-only
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
