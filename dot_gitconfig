@@ -3,12 +3,11 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[user]
-	name = Doan Thieu
-	email = thieurom@gmail.com
 [core]
 	editor = nvim
     pager = delta
+[include]
+    path = ~/.gitconfig.local
 [init]
 	defaultBranch = main
 [alias]
