@@ -20,7 +20,15 @@ chezmoi --source "$PWD" apply
 
 - `dot_gitconfig` -> `~/.gitconfig`
 - `private_dot_config/` -> `~/.config/`
-- `stow-legacy/` keeps the previous GNU Stow package layout for review.
+
+Git identity is intentionally kept out of the public repository. Put local
+identity in `~/.gitconfig.local`, for example:
+
+```ini
+[user]
+    name = Your Name
+    email = you@example.com
+```
 
 Generated and local-only files are intentionally not managed, including Neovim
 compiled packer output, `.DS_Store`, Kitty backups, and Karabiner automatic
