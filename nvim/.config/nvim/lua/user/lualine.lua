@@ -10,7 +10,7 @@ end
 local branch = {
   "branch",
   icon = "󰘬",
-  separator = { left = "", right = "", },
+  separator = { left = "", right = "", },
 }
 
 local diagnostics = {
@@ -24,14 +24,9 @@ local diagnostics = {
 
 local diff = {
   "diff",
-  colored = false,
-  symbols = { added = " ",  modified = " ", removed = " " },
+  colored = true,
+  symbols = { added = " ",  modified = " ", removed = " " }, -- changes diff symbols
   cond = hide_in_width,
-}
-
-local filetype = {
-  "filetype",
-  icons_enabled = false,
 }
 
 local location = {
@@ -62,7 +57,7 @@ lualine.setup {
     icons_enabled = true,
     theme = "auto",
     component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard" },
     always_divide_middle = true,
   },
@@ -70,8 +65,7 @@ lualine.setup {
     lualine_a = { "mode" },
     lualine_b = { branch },
     lualine_c = { diff },
-
-    lualine_x = { diagnostics, { get_active_lsp, icon = "LSP:", } },
+    lualine_x = { diagnostics, "lsp_status" },
     lualine_y = { location },
     lualine_z = { "progress" },
   },

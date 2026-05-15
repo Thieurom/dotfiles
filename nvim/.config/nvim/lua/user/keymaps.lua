@@ -41,6 +41,12 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
+-- Xcodebuild
+keymap("n", "<leader>X", ":XcodebuildPicker<CR>", opts)
+keymap("n", "<leader>xr", ":XcodebuildBuildRun<CR>", opts)
+keymap("n", "<leader>xb", ":XcodebuildBuild<CR>", opts)
+keymap("n", "<leader>xt", ":XcodebuildTest<CR>", opts)
+
 -- LSP
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", opts)
 
@@ -48,9 +54,3 @@ keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", opt
 keymap("n", "<leader>gj", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<leader>gk", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
-
--- Xcodebuild
-keymap("n", "<leader>X", ":XcodebuildPicker<CR>", opts)
-keymap("n", "<leader>xr", ":XcodebuildBuildRun<CR>", opts)
-keymap("n", "<leader>xb", ":XcodebuildBuild<CR>", opts)
-keymap("n", "<leader>xt", ":XcodebuildTest<CR>", opts)
