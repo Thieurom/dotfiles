@@ -7,7 +7,6 @@ local servers = {
 
 local mason_servers = {
     "pyright",
-    "dartls",
     "ts_ls",
 }
 
