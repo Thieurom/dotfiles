@@ -21,7 +21,7 @@ vim.pack.add({
     { src = gh("nvim-tree/nvim-tree.lua") },
     { src = gh("nvim-lua/plenary.nvim") },
     { src = gh("nvim-telescope/telescope.nvim") },
-    { src = gh("nvim-tree/nvim-web-devicons") },
+    { src = gh("nvim-mini/mini.icons") },
     { src = gh("nvim-lualine/lualine.nvim") },
     { src = gh("akinsho/bufferline.nvim") },
     { src = gh("moll/vim-bbye") },
