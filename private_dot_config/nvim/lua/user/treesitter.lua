@@ -1,30 +1,61 @@
-local status_ok, treesitter = pcall(require, "nvim-treesitter")
-if not status_ok then
-    return
-end
+local languages = {
+  "lua",
+  "javascript",
+  "typescript",
+  "tsx",
+  "html",
+  "html_tags",
+  "css",
+  "json",
+  "ecma",
+  "jsx",
+  "markdown",
+  "markdown_inline",
+  "bash",
+  "python",
+  "swift",
+  "dart",
+}
 
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+local highlight_filetypes = {
+  "lua",
+  "javascript",
+  "typescript",
+  "typescriptreact",
+  "html",
+  "json",
+  "markdown",
+  "sh",
+  "bash",
+  "python",
+  "swift",
+  "dart",
+}
+
+local indent_filetypes = vim.tbl_filter(function(filetype)
+  return not vim.tbl_contains({ "python" }, filetype)
+end, highlight_filetypes)
+
+local status_ok, treesitter = pcall(require, "nvim-treesitter")
 if not status_ok then
   return
 end
 
-configs.setup {
-  ensure_installed = { "lua", "javascript", "typescript", "tsx", "html", "css", "json", "markdown", "markdown_inline", "bash", "python", "swift", "dart" }, -- put the language you want in this array
-  -- ensure_installed = "all", -- one of "all" or a list of languages
-  ignore_install = { "" }, -- List of parsers to ignore installing
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+treesitter.setup()
+if vim.fn.executable("tree-sitter") == 1 then
+  treesitter.install(languages)
+end
 
-  highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = { "css" }, -- list of language that will be disabled
-  },
-  autopairs = {
-    enable = true,
-  },
-  indent = { enable = true, disable = { "python", "css" } },
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = highlight_filetypes,
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
 
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
-}
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = indent_filetypes,
+  callback = function()
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
