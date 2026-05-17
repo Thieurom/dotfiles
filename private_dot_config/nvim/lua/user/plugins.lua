@@ -30,6 +30,7 @@ vim.pack.add({
     { src = gh("folke/which-key.nvim") },
     { src = gh("akinsho/toggleterm.nvim") },
     { src = gh("lukas-reineke/indent-blankline.nvim") },
+    { src = gh("MeanderingProgrammer/render-markdown.nvim") },
 
     { src = gh("EdenEast/nightfox.nvim") },
     { src = gh("neanias/everforest-nvim") },
