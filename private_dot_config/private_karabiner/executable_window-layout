@@ -1,0 +1,100 @@
+#!/bin/zsh
+set -euo pipefail
+
+mode="${1:-}"
+
+osascript -l JavaScript - "$mode" <<'JXA'
+ObjC.import('AppKit')
+
+function run(argv) {
+const mode = argv[0]
+const se = Application('System Events')
+
+function frontProcess() {
+  return se.applicationProcesses.whose({ frontmost: true })[0]
+}
+
+function activeWindow(process) {
+  const windows = process.windows()
+  if (windows.length === 0) {
+    throw new Error(`No windows for ${process.name()}`)
+  }
+  return windows[0]
+}
+
+function frameForWindow(win) {
+  const pos = win.position()
+  const size = win.size()
+  return {
+    x: pos[0],
+    y: pos[1],
+    w: size[0],
+    h: size[1],
+    cx: pos[0] + size[0] / 2,
+    cy: pos[1] + size[1] / 2,
+  }
+}
+
+function screenForWindow(winFrame) {
+  const screens = $.NSScreen.screens
+  const count = screens.count
+  let chosen = screens.objectAtIndex(0)
+
+  for (let i = 0; i < count; i++) {
+    const screen = screens.objectAtIndex(i)
+    const full = screen.frame
+    const visible = screen.visibleFrame
+    const top = full.size.height - visible.origin.y - visible.size.height
+    const left = visible.origin.x
+    const right = left + visible.size.width
+    const bottom = top + visible.size.height
+
+    if (winFrame.cx >= left && winFrame.cx <= right && winFrame.cy >= top && winFrame.cy <= bottom) {
+      chosen = screen
+      break
+    }
+  }
+
+  const full = chosen.frame
+  const visible = chosen.visibleFrame
+  return {
+    x: visible.origin.x,
+    y: full.size.height - visible.origin.y - visible.size.height,
+    w: visible.size.width,
+    h: visible.size.height,
+  }
+}
+
+function targetFrame(screen, mode) {
+  const halfW = Math.floor(screen.w / 2)
+  const halfH = Math.floor(screen.h / 2)
+
+  switch (mode) {
+    case 'top-left':
+      return { x: screen.x, y: screen.y, w: halfW, h: halfH }
+    case 'bottom-left':
+      return { x: screen.x, y: screen.y + halfH, w: halfW, h: screen.h - halfH }
+    case 'top-right':
+      return { x: screen.x + halfW, y: screen.y, w: screen.w - halfW, h: halfH }
+    case 'bottom-right':
+      return { x: screen.x + halfW, y: screen.y + halfH, w: screen.w - halfW, h: screen.h - halfH }
+    case 'left-half':
+      return { x: screen.x, y: screen.y, w: halfW, h: screen.h }
+    case 'right-half':
+      return { x: screen.x + halfW, y: screen.y, w: screen.w - halfW, h: screen.h }
+    case 'max':
+      return screen
+    default:
+      throw new Error(`Unknown window layout mode: ${mode}`)
+  }
+}
+
+const process = frontProcess()
+const win = activeWindow(process)
+const screen = screenForWindow(frameForWindow(win))
+const frame = targetFrame(screen, mode)
+
+win.position = [frame.x, frame.y]
+win.size = [frame.w, frame.h]
+}
+JXA
