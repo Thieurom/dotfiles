@@ -12,7 +12,6 @@ ibl.setup {
     filetypes = {
       "help",
       "query",
-      "NvimTree",
     },
   },
 }

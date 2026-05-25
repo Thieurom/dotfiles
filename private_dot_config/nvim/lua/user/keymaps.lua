@@ -38,9 +38,8 @@ keymap("v", "p", '"_dP', opts)
 
 -- Plugins --
 
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>j", ":NvimTreeFindFile<CR>", opts)
+-- Neo-tree
+keymap("n", "<leader>e", ":Neotree filesystem reveal float<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)

@@ -7,7 +7,6 @@ bufferline.setup {
   options = {
     close_command = "Bdelete! %d",
     right_mouse_command = "Bdelete! %d",
-    offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
     separator_style = { " ", " " },
     buffer_close_icon = "x",
     close_icon = "x",

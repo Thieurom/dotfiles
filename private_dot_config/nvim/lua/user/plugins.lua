@@ -18,9 +18,11 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.pack.add({
-    { src = gh("nvim-tree/nvim-tree.lua") },
     { src = gh("nvim-lua/plenary.nvim") },
     { src = gh("nvim-telescope/telescope.nvim") },
+    { src = gh("MunifTanjim/nui.nvim") },
+    { src = gh("nvim-tree/nvim-web-devicons") },
+    { src = gh("nvim-neo-tree/neo-tree.nvim"), version = "v3.x" },
     { src = gh("nvim-mini/mini.icons") },
     { src = gh("nvim-lualine/lualine.nvim") },
     { src = gh("akinsho/bufferline.nvim") },
