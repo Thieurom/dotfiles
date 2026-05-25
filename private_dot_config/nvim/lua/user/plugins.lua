@@ -49,6 +49,7 @@ vim.pack.add({
     { src = gh("neovim/nvim-lspconfig") },
     { src = gh("williamboman/mason.nvim") },
     { src = gh("williamboman/mason-lspconfig.nvim") },
+    { src = gh("WhoIsSethDaniel/mason-tool-installer.nvim") },
     { src = gh("nvimtools/none-ls.nvim") },
 
     { src = gh("neovim-treesitter/treesitter-parser-registry") },
