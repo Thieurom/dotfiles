@@ -10,6 +10,12 @@ local mason_servers = {
     "ts_ls",
 }
 
+local mason_tools = {
+    "prettier",
+    "ruff",
+    "stylua",
+}
+
 local settings = {
 	ui = {
 		border = "none",
@@ -27,6 +33,11 @@ require("mason").setup(settings)
 require("mason-lspconfig").setup({
 	ensure_installed = mason_servers,
 	automatic_enable = false,
+})
+require("mason-tool-installer").setup({
+	ensure_installed = mason_tools,
+	auto_update = false,
+	run_on_start = true,
 })
 
 local opts = {}
