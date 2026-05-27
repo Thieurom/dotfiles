@@ -42,7 +42,7 @@ keymap("n", "<leader>=", "mzgg=G`z", opts)
 -- Plugins --
 
 -- Neo-tree
-keymap("n", "<leader>e", ":Neotree filesystem reveal float<CR>", opts)
+keymap("n", "<leader>e", ":Neotree filesystem reveal left toggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
