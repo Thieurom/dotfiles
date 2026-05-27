@@ -27,8 +27,8 @@ neo_tree.setup {
     },
   },
   window = {
-    position = "float",
-    width = 50,
+    position = "left",
+    width = 35,
     mappings = {
       ["q"] = "close_window",
     },
