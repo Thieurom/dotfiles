@@ -16,6 +16,10 @@ local languages = {
   "python",
   "swift",
   "dart",
+  "rust",
+  "go",
+  "gomod",
+  "gosum",
 }
 
 local highlight_filetypes = {
@@ -32,6 +36,10 @@ local highlight_filetypes = {
   "python",
   "swift",
   "dart",
+  "rust",
+  "go",
+  "gomod",
+  "gosum",
 }
 
 local indent_filetypes = vim.tbl_filter(function(filetype)

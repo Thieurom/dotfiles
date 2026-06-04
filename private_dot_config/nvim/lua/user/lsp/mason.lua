@@ -2,7 +2,9 @@ local servers = {
     "pyright",
     "sourcekit",
     "dartls",
-    "ts_ls"
+    "ts_ls",
+    "rust_analyzer",
+    "gopls",
 }
 
 local mason_servers = {

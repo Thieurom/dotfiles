@@ -49,5 +49,6 @@ null_ls.setup {
     ruff_format,
     formatting.prettier,
     formatting.stylua,
+    formatting.goimports,
   },
 }
