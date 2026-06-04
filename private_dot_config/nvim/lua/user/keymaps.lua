@@ -39,6 +39,10 @@ keymap("v", "p", '"_dP', opts)
 -- Reindent whole file
 keymap("n", "<leader>=", "mzgg=G`z", opts)
 
+-- Yank to system clipboard
+keymap({ "n", "v" }, "<leader>y", '"+y', opts)
+keymap("n", "<leader>Y", '"+yy', opts)
+
 -- Plugins --
 
 -- Neo-tree
