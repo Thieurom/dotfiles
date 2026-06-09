@@ -14,6 +14,11 @@ vim.api.nvim_create_autocmd("PackChanged", {
                 vim.cmd("TSUpdate")
             end
         end
+
+        if name == "markdown-preview.nvim" and (kind == "install" or kind == "update") then
+            vim.cmd.packadd("markdown-preview.nvim")
+            vim.fn["mkdp#util#install"]()
+        end
     end,
 })
 
@@ -56,6 +61,8 @@ vim.pack.add({
     { src = gh("neovim-treesitter/nvim-treesitter") },
 
     { src = gh("lewis6991/gitsigns.nvim") },
+
+    { src = gh("iamcco/markdown-preview.nvim") },
 }, {
     confirm = false,
     load = true,
