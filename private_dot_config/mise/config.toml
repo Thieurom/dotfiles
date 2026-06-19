@@ -1,0 +1,17 @@
+[tools]
+flutter = "3.38.10"
+"github:anomalyco/opencode" = "latest"
+herdr = "latest"
+"aqua:neovim/neovim" = "latest"
+node = "24.15.0"
+"pipx:gitingest" = "latest"
+pnpm = "latest"
+python = "3.14"
+rust = "latest"
+tuist = "4.198.1"
+uv = "latest"
+xcbeautify = "latest"
+xcodegen = "2.44.1"
+
+[settings]
+experimental = true
